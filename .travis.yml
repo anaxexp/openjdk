@@ -1,0 +1,22 @@
+language: bash
+
+services:
+  - docker
+
+env:
+  global:
+    - LATEST_TAG=8
+  matrix:
+    - TAG=8
+
+script:
+  - make
+
+after_success:
+  - bash "${TRAVIS_BUILD_DIR}/travis-release.sh"
+
+notifications:
+  on_failure: never
+  slack:
+    secure: |
+      PdGc/EwrPPhFT2P4ZOf1OTuY7Keo0EZsEQY+C/6yWYG1LDy1Qv+YgHY69V0EO41B9JQE9ugODupIK3bW3ct4UenPM6g48byN8oGYnVxIdLdhcbjiXLUBUfWCNrr772AjPDuxI8RPXxStKnGkN8Et0Y1It9BGmkowr4tr4tRcB0VfCgayAB9LIoZCepoPAp04vhVS7TSsloovnAyxsvx98zAa4HvyLlm4XDHdqQ5wdWYRglqImV/afk8K53+IAgQM9HDx2lPX9T/FxO6ckubqDNq7LqShaJxRjx3vUs2SmSMiZQW976Mnhpwa30QFy9861e2Qi1rogeW4bZe+xjTM8B9wMT6t3rNaAja+tBE3mx4kL7vdJW5Xz5jeSx+Tv1MvA4B5JIEpAbVRctRfTLP5VUkOOvFKcPXFmyywYMJsEkN+zEYkZqIi1cQI4Jtl+VyZJ4ysBt6Qzgt8X00jWA5a13WHiko10FQEID2v0kVXhtuD1pF4OVKg+aGLQ4eOEET65FIKVxRqXyVZjTT54toVc5tzip+NLAuW5K0TWWvD6Vc3s2cFe4KUy3+gicHmUgrmnJVBSjtFTJUq4Op5VH2KiXY3diSJ2RB9le0aOVJMKresU3daaTXBQjgya4iZ/stip3XIRCtlC71MMrdasdDzIPytbO12RZ3CLku4fhwntUc=
