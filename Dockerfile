@@ -1,4 +1,4 @@
-FROM anaxexp/alpine:3.7
+FROM anaxexp/alpine:3.8
 
 ENV JAVA_VERSION="8u171" \
     JAVA_ALPINE_VERSION="8.171.11-r0" \
